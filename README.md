@@ -40,7 +40,7 @@
 
 ### Key Features <a name="key-features"></a>
 - [ ] **Creating a data model.**
-
+- [ ] **Processing data in models**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,7 +69,6 @@ Clone this repository to your desired folder:
 
 ## 🔭 Future Features <a name="future-features"></a>
 - [ ] **Validations and Model specs**
-- [ ] **Processing data in models**
 - [ ] **Setup and controllers**
 - [ ] **Controllers specs**
 - [ ] **Views**
