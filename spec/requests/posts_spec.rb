@@ -34,4 +34,4 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include('Post by')
     end
   end
-end  
+end
