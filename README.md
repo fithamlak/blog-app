@@ -42,6 +42,7 @@
 - [ ] **Creating a data model.**
 - [ ] **Processing data in models**
 - [ ] **Validations and Model specs**
+- [ ] **add controllers**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
