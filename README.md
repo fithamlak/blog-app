@@ -75,10 +75,7 @@ Clone this repository to your desired folder:
 ## 🔭 Future Features <a name="future-features"></a>
 - [ ] **Forms**
 - [ ] **Integration specs for Views and fixing n+1 problems**
-- [ ] **Add Devise**
-- [ ] **Add authorization rules**
-- [ ] **Add API endpoints**
-- [ ] **API documentation**
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHOR -->
