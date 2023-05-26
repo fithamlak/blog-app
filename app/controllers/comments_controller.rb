@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.author_id = current_user.id
     if @comment.save
       redirect_to @comment.post
     else
