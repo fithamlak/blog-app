@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   before_validation :set_comments_counter, on: :create
-  before_validation :set_likes_counter, on: :creat
+  before_validation :set_likes_counter, on: :create
   after_save :update_author_posts_counter
 
   validates :title, presence: true, length: { maximum: 250 }
