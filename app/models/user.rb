@@ -12,11 +12,11 @@ class User < ApplicationRecord
   end
 
   def likes?(post)
-    likes.exists?(post:)
+    likes.exists?(post: post)
   end
 
   def like_for(post)
-    likes.find_by(post:)
+    likes.find_by(post: post)
   end
 
   private

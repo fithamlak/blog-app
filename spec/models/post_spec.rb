@@ -35,13 +35,13 @@ describe Post, type: :model do
   describe 'CommentsCounter' do
     it 'is not valid if it is not an integer greater than or equal to zero' do
       author = User.create!(name: 'Justice')
-      post = Post.create!(title: 'test', author:)
+      post = Post.create!(title: 'test', author: author)
       post.comments_counter = -1
       expect(post).to_not be_valid
     end
 
     it 'is valid if it is an integer greater than or equal to zero' do
-      post = Post.new(title: 'test', author:)
+      post = Post.new(title: 'test', author: author)
       expect(post).to be_valid
     end
   end

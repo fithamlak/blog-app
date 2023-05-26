@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :new, :create], shallow: true do
       resources :comments, only: [:new, :create], shallow: true
       resources :likes, only: [:create, :destroy], shallow: true
-  end
+    end
+  end  
   root 'users#index'  
 end

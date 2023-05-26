@@ -46,6 +46,7 @@
 - [ ] **Setup and controllers**
 - [ ] **Controllers specs**
 - [ ] **Views**
+- [ ] **Forms**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -73,7 +74,6 @@ Clone this repository to your desired folder:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Forms**
 - [ ] **Integration specs for Views and fixing n+1 problems**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

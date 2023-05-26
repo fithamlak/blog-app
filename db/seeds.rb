@@ -22,14 +22,14 @@ User.all.each do |user|
       likes_counter: 0
     )
 
-    10.times do 
+    5.times do 
       author = User.order("RANDOM()").first
-      Comment.create!(text: Faker::Quotes::Shakespeare.as_you_like_it_quote, author:, post:)
+      Comment.create!(text: Faker::Quotes::Shakespeare.as_you_like_it_quote, author: author, post: post)
     end
 
     10.times do 
       author = User.order("RANDOM()").first
-      Like.create!(author:, post:)
+      Like.create!(author: author, post: post)
     end
   end
 end

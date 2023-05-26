@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).order(created_at: :desc)
   end
-  
+
   def new
     @post = Post.new
   end
