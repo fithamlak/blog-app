@@ -8,7 +8,15 @@ class User < ApplicationRecord
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def last_three_posts
-    posts.order(created_at: :desc).limit(3).reverse_order
+    posts.order(created_at: :desc).limit(3)
+  end
+
+  def likes?(post)
+    likes.exists?(post: post)
+  end
+
+  def like_for(post)
+    likes.find_by(post: post)
   end
 
   private
