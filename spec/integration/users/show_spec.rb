@@ -27,5 +27,31 @@ describe 'Users show page', type: :system do
 
       expect(page).to have_content("Number of posts: #{@user1.posts.size}")
     end
+
+    it "I can see the user's bio." do
+      visit user_path(@user1)
+      expect(page).to have_content(@user1.bio)
+    end
+    it "I can see the user's first 3 posts." do
+      visit user_path(@user1)
+      expect(page).to have_content(@post1.title)
+      expect(page).to have_content(@post2.title)
+      expect(page).to have_content(@post3.title)
+      expect(page).not_to have_content(@post4.title)
+    end
+    it "I can see a button that lets me view all of a user's posts." do
+      visit user_path(@user1)
+      expect(page).to have_link('See all posts', class: 'btn')
+    end
+    it "When I click a user's post, it redirects me to that post's show page." do
+      visit user_path(@user1)
+      click_link @post1.title
+      expect(page).to have_current_path(post_path(@post1))
+    end
+    it "When I click to see all posts, it redirects me to the user's post's index page." do
+      visit user_path(@user1)
+      click_link 'See all posts'
+      expect(page).to have_current_path(user_posts_path(@user1))
+    end
   end
 end
