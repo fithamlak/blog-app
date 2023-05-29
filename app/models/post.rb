@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :last_five_comments, -> { order(created_at: :desc).limit(5) }, class_name: 'Comment'
 
   before_validation :set_comments_counter, on: :create
   before_validation :set_likes_counter, on: :create
@@ -11,9 +12,6 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0, message: 'must be greater than or equal to zero' }
 
-  def last_five_comments
-    comments.order(created_at: :desc).limit(5)
-  end
 
   private
 
