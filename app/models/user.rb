@@ -11,7 +11,7 @@ class User < ApplicationRecord
   def first_3_posts
     posts.order(created_at: :asc).limit(3)
   end
-  
+
   def likes?(post)
     likes.exists?(post: post)
   end
