@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0, message: 'must be greater than or equal to zero' }
 
   def last_five_comments
     comments.order(created_at: :desc).limit(5)
@@ -22,8 +22,9 @@ class Post < ApplicationRecord
   end
 
   def set_likes_counter
-    self.likes_counter = 0
+    self.likes_counter ||= 0
   end
+  
 
   def update_author_posts_counter
     author.increment!(:posts_counter)
