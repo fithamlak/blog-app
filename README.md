@@ -47,6 +47,7 @@
 - [ ] **Controllers specs**
 - [ ] **Views**
 - [ ] **Forms**
+- [ ] **integration specs for views and fix n+1 problems**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,21 +72,42 @@ Clone this repository to your desired folder:
 
 - git clone https://github.com/fithamlak/blog-app.git
 
-<!-- FUTURE FEATURES -->
+To run the project, execute the following command:
 
-## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Integration specs for Views and fixing n+1 problems**
+```sh
+  rails db:drop
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails server
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHOR -->
 
-## 👥 Author <a name="author"></a>
+## 👥 Authors <a name="author"></a>
 
 👤 **Fithamlak**
 
 - GitHub: [@fithamlak](https://github.com/fithamlak)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/fithamlak-fikrie)
+
+👤  **Gerson**
+
+- Github [@gerson](https://github.com/gealsanchez)
+
+👤  **Vanessa**
+
+- Github [@vanessa](https://github.com/vvoo21)
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+- **Project 9: Add Devise**
+- **Project 10: Add authorization rules**
+- **Project 11: Add API endpoints**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
