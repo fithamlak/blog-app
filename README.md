@@ -48,6 +48,7 @@
 - [ ] **Views**
 - [ ] **Forms**
 - [ ] **integration specs for views and fix n+1 problems**
+- [ ] **Add devise**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,7 +106,6 @@ To run the project, execute the following command:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-- **Project 9: Add Devise**
 - **Project 10: Add authorization rules**
 - **Project 11: Add API endpoints**
 
