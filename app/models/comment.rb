@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
   after_save :update_post_comments_counter
   after_destroy :decrement_post_comments_counter
-  validates :text, presence: true, length: { maximum: 300 }
+  validates :text, presence: true, length: { maximum: 450 }
 
   private
 
