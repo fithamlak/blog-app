@@ -7,8 +7,6 @@ class PostsController < ApplicationController
     @likes = @user.likes.includes(:post).index_by(&:post_id)
     @liked_post_ids = @likes.keys
   end
-  
-  
 
   def new
     @post = Post.new
