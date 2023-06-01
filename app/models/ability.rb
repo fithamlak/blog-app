@@ -33,7 +33,6 @@ class Ability
 
     # additional permissions for logged in users
     return unless user.present?
-
     can :destroy, Post do |post|
       post.author == user
     end
@@ -43,9 +42,7 @@ class Ability
     end
 
     # additional permissions for admin users
-    return unless user.role == 'admin'
-
-    can :destroy, Comment
-    can :destroy, Post
+    return unless user.admin?
+    cna :manage, all
   end
 end
