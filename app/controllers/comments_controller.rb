@@ -6,12 +6,19 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.author_id = current_user.id
     if @comment.save
       redirect_to @comment.post
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    post = @comment.post
+
+    @comment.destroy
+    redirect_back(fallback_location: post)
   end
 
   private

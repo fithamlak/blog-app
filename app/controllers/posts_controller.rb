@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :asc)
     @likes = @user.likes.includes(:post).index_by(&:post_id)
     @liked_post_ids = @likes.keys
-    @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :asc)
-    @posts_count = @posts.size
   end
 
   def new
@@ -20,7 +21,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.author_id = current_user.id
     if @post.save
       redirect_to @post.author
     else
@@ -28,7 +28,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    user = @post.author
+
+    @post.destroy
+    redirect_to user
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_likes
+    @likes = @user&.likes&.includes(:post)&.index_by(&:post_id)
+    @liked_post_ids = @likes&.keys
+  end
 
   def post_params
     params.require(:post).permit(:author_id, :title, :text)
