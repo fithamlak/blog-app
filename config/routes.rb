@@ -18,12 +18,3 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  namespace :api, defaults: { format: 'json' } do
-    namespace :v0 do
-      resources :users, only: [] do
-        resources :posts, only: :index
-      end
-    end
-  end
-end

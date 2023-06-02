@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   before_create :set_auth_token
-  before_create :set_profile       
+  before_create :set_profile
   before_validation :set_posts_counter, on: :create
   has_many :posts, foreign_key: :author_id, dependent: :destroy
   has_many :comments, foreign_key: :author_id, dependent: :destroy
