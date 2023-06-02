@@ -23,6 +23,6 @@ class Api::V0::CommentsController < Api::V0::BaseController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :text,)
+    params.require(:comment).permit(:post_id, :text)
   end
 end
