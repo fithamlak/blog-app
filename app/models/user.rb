@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def set_profile
-    self.photo_url = Faker::Avatar.image
+    self.photo = Faker::Avatar.image
     self.bio = Faker::Job.title
   end
 

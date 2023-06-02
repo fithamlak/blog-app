@@ -1,8 +1,10 @@
-class Api::V0::PostsController < Api::V0::BaseController
+class Api::V0::PostsController < ApplicationController
     def index
-      user = User.find(params[:user_id])
-      @posts = Post.where(author: user)
+      @user = User.find(params[:user_id])
+      @posts = @user.posts
   
-      render json: @posts
+      respond_to do |format|
+        format.json { render json: @posts }
+      end
     end
   end
