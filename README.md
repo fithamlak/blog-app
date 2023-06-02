@@ -51,6 +51,7 @@
 - [ ] **Add devise**
 - [ ] **Project 10: Add authorization rules**
 - [ ] **Project 11: Add API endpoints**
+- [ ] **Api documentation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,10 +106,6 @@ To run the project, execute the following command:
 
 - Github [@vanessa](https://github.com/vvoo21)
 
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Api documentation**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

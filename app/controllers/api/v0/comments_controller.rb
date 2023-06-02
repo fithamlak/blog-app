@@ -1,4 +1,6 @@
 class Api::V0::CommentsController < Api::V0::BaseController
+  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate, only: :index
   def index
     post = Post.find(params[:post_id])
     @comments = Comment.where(post: post)
@@ -8,7 +10,8 @@ class Api::V0::CommentsController < Api::V0::BaseController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.author = current_user
+    @comment.post_id = params[:post_id]
+    @comment.author = @authorized_user
 
     if @comment.save
       render json: @comment, status: :created, location: @comment
@@ -20,6 +23,6 @@ class Api::V0::CommentsController < Api::V0::BaseController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :text, :author_id)
+    params.require(:comment).permit(:post_id, :text)
   end
 end
