@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+  before_create :set_auth_token
+  before_create :set_profile
   before_validation :set_posts_counter, on: :create
   has_many :posts, foreign_key: :author_id, dependent: :destroy
   has_many :comments, foreign_key: :author_id, dependent: :destroy
@@ -14,6 +16,18 @@ class User < ApplicationRecord
 
   def first_3_posts
     posts.order(created_at: :asc).limit(3)
+  end
+
+  def set_auth_token
+    loop do
+      self.auth_token = SecureRandom.hex
+      break unless User.exists?(auth_token: auth_token)
+    end
+  end
+
+  def set_profile
+    self.photo = Faker::Avatar.image
+    self.bio = Faker::Job.title
   end
 
   def likes?(post)
