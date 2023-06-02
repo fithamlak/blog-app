@@ -31,7 +31,7 @@ describe 'Comments API' do
           confirmed_at: Time.now,
           name: Faker::Name.first_name
         )
-        let(:comment) { { text: 'test', author: user, post_id: } }
+        let(:comment) { { text: 'test', author: user, post_id: post.id } }
         let(:Authorization) { user.auth_token }
         run_test!
       end
