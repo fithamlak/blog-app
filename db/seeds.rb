@@ -2,6 +2,7 @@ User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
+
 user1 = User.create!(
   email: 'ordinaluser1@test.com',
   password: 'password1',
@@ -16,6 +17,7 @@ post1 = Post.create!(
   text: Faker::Quote.matz,
   author: user1
 )
+
 comment1 = Comment.create!(
   text: Faker::Quote.matz,
   post: post1,
